@@ -127,5 +127,10 @@ elif puntos_ganados > 150:
 else:
     print ("Perdiste")
     
-  
+resultado = True & True
+resultado2 = False | True
+resultado3 = not True
+resultado4 = not False
+
+print (resultado)
  
