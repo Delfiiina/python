@@ -31,3 +31,7 @@ True
 True
 True
             -> Condicionales 
+No podes pasar
+Mal
+Casi
+True
