@@ -1,0 +1,17 @@
+            ->Todo lo que imprime de Datos simples y variables:
+Hola mundo
+23
+Delfina
+11
+Hola Delfina ¿Cómo estás?
+Hola 11 ¿cómo estás?
+100
+True
+False
+            -> Lo que imprime de Datos compuestos:
+['primero', 2, False]
+False
+['primero', 3, False]
+{False, 2, 'primero'}
+{'nombre': 'Delfina', 'edad': 19, 'pelo_negro': False}
+19
