@@ -60,3 +60,38 @@ diccionario = {
 }
 print (diccionario)
 print (diccionario ['edad'])
+
+# Operadores aritméticos
+suma = 10 + 5
+resta = 10 - 5
+multiplicacion = 2 * 5
+division = 10 / 5 # devuelve float
+potencia = 2 ** 5
+division_baja = 10 // 5
+modulo = 10 % 5 
+print (suma)
+print (resta)
+print (multiplicacion)
+print (division)
+print (potencia)
+print (division_baja)
+print (modulo)
+
+tipo_de_dato = type (5) # type() nos devuelve que tipo de dato es 
+print (tipo_de_dato)
+
+# Operadores de comparación, devuelve o True o False
+igual_que = 5 == 6 # devuelve False
+distinto_de = 5 != 6 # devuelve True
+mayor_que = 6 > 5
+menor_que = 5 < 6
+mayor_o_igual = 5 >= 7
+menor_o_igual = 5 <= 5
+print (igual_que)
+print (distinto_de)
+print (mayor_o_igual)
+print (mayor_que)
+print (menor_o_igual)
+print (menor_que)
+
+

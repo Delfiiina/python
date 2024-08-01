@@ -15,3 +15,19 @@ False
 {False, 2, 'primero'}
 {'nombre': 'Delfina', 'edad': 19, 'pelo_negro': False}
 19
+            -> operadores aritméticos y de comparación:
+15
+5
+10
+2.0
+32
+2
+0
+<class 'int'>
+False
+True
+False
+True
+True
+True
+            ->
