@@ -94,4 +94,38 @@ print (mayor_que)
 print (menor_o_igual)
 print (menor_que)
 
+# Condicionales. Ir cambiando las variables definidas para ver cómo funciona
 
+edad = 17
+if edad >= 18:
+    print ("Podes pasar")
+else:
+    print ("No podes pasar")
+
+ingreso_mensual = 30
+
+if ingreso_mensual > 80:
+    print ("Bien")
+elif ingreso_mensual >50:
+    print ("Maso")
+else:
+    print ("Mal")
+
+puntos_ganados = 290
+puntos_perdidos = 45
+
+if puntos_ganados > 300:
+    if puntos_ganados - puntos_perdidos <= 150:
+        print ("Podrias haber ganado")
+    else:
+        print ("Ganaste")
+elif puntos_ganados > 150:
+    if puntos_ganados - puntos_perdidos <= 150:
+        print ("Podrias haber quedado segundo")
+    else :
+        print ("Casi")
+else:
+    print ("Perdiste")
+    
+  
+ 
