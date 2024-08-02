@@ -134,3 +134,44 @@ resultado4 = not False
 
 print (resultado)
  
+# MÉTODOS
+# CADENAS
+
+cadena1 = "Hola soy Delfi"
+cadena2 = "bienvenido!"
+cadena3 = "ME GUSTA EL CAFE"
+
+#print (dir (cadena1))  # los comento pq molestan en la terminal 
+#print (dir (4))
+print (cadena1.upper())
+print ("Tengo 19 años".upper())
+print (cadena3.lower())
+print (cadena2.capitalize())
+print (cadena1.find("soy")) # pasa la posición
+print (cadena1.index("a"))  # si no hay coincidencias tira un error
+print (cadena2.isnumeric())
+print ("3".isnumeric())  # Verifica que sea un número aunque este entre " " (lo cual, en definitiva, lo convierte en un texto)
+print (cadena2.isalpha())  
+print ("Hola".isalpha())
+print (cadena1.count("soy"))
+print (cadena1.count("z"))
+print (cadena2.count("e"))
+print (len(cadena2)) # Función
+print (len("hola!"))
+print (cadena1.startswith("c"))
+print (cadena3.startswith("ME G"))
+print (cadena1.endswith("jj"))
+print (cadena2.endswith("!"))
+print (cadena1.replace("Delfi","Marta"))
+print (cadena2.replace("e","kakaka"))
+print (cadena3.replace("bu","ba"))
+cadena4 = "Hola,como,estás,todo,bien?"
+print (cadena4.split(","))
+print (cadena4.split(" "))
+cadena5 = "Hola,como,estás,todo,bien?,,"
+print (cadena5.split(","))
+cadena6 = "Hola,como,estás,todo,bien?,    ,    "
+print (cadena6.split(","))
+
+#LISTAS
+
