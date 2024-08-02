@@ -173,5 +173,42 @@ print (cadena5.split(","))
 cadena6 = "Hola,como,estás,todo,bien?,    ,    "
 print (cadena6.split(","))
 
-#LISTAS
+# LISTAS
+lista1 = [1,2,"Delfi",False,True]
+print (list([1,2,"Delfi",False,True]))
+print (len(lista1))
+lista1.append("JAJA") # No imprime nada de por sí, me cambió la lista. Importa el orden con el q ponemos las cosas
+print (lista1) # Ahora si se ve el nuevo elemento en la lista
+lista1.insert(1,"Dos")
+print (lista1)
+lista1.extend([34,"caja",True])
+print (lista1)
+lista1.pop(0)
+print (lista1)
+lista1.pop (-1)
+print (lista1)
+lista1.remove("Delfi")
+print (lista1)
+#lista1.remove("sol") # Me va a tirar error ya que ese elemento no está en la lista
+#lista1.clear()
+#print (lista1)
+lista2 = [14,6,False,22,876,True,34,9,5,5,True,False]
+print (lista2)
+lista2.sort()
+print (lista2)
+lista2.sort(reverse=True)
+print (lista2)
+
+print (lista1)
+lista1.reverse()
+print (lista1)
+
+# TUPLAS
+tupla1 = (1,2,1)
+print (type(tupla1))
+print (tupla1.index(2))
+print (tupla1.count(1))
+
+# DICCIONARIOS
+
 
