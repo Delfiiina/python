@@ -210,5 +210,22 @@ print (tupla1.index(2))
 print (tupla1.count(1))
 
 # DICCIONARIOS
-
+diccionario1 = {
+    'nombre' : 'Delfi',
+    'apellido' : 'Boyadjian',
+    'edad' : 19,
+    'pelo_negro' : False,
+    'toma_agua' : True,
+    'cantidad_botellas' : 1
+}
+claves = diccionario.keys()
+print (claves)
+print (diccionario1.get('apellido'))
+print (diccionario1.get("altura")) # Imprime none ya que no tiene valor, pero el programa no se rompe
+#print (diccionario1 ["altura"]) # Se traba el programa
+#print (diccionario1.clear())
+diccionario1.pop("edad")
+print (diccionario1)
+diccionario_iterable = diccionario1.items()
+print (diccionario_iterable)
 

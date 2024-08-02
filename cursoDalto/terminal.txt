@@ -108,3 +108,8 @@ ME GUSTA EL CAFE
 1
 2
             -> De diccionarios 
+dict_keys(['nombre', 'edad', 'pelo_negro'])
+Boyadjian
+None
+{'nombre': 'Delfi', 'apellido': 'Boyadjian', 'pelo_negro': False, 'toma_agua': True, 'cantidad_botellas': 1}
+dict_items([('nombre', 'Delfi'), ('apellido', 'Boyadjian'), ('pelo_negro', False), ('toma_agua', True), ('cantidad_botellas', 1)])
