@@ -228,4 +228,3 @@ diccionario1.pop("edad")
 print (diccionario1)
 diccionario_iterable = diccionario1.items()
 print (diccionario_iterable)
-
