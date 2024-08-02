@@ -114,4 +114,8 @@ None
 {'nombre': 'Delfi', 'apellido': 'Boyadjian', 'pelo_negro': False, 'toma_agua': True, 'cantidad_botellas': 1}
 dict_items([('nombre', 'Delfi'), ('apellido', 'Boyadjian'), ('pelo_negro', False), ('toma_agua', True), ('cantidad_botellas', 1)])
 
-Inputs lo pongo en un archivo aparte
+            Inputs lo pongo en un archivo aparte
+Escribir tu nombre: Delfina (este Delfina se lo completé yo)
+Hola Delfina 
+Escsribir un número: 4.5 (lo completé yo)
+9.0
