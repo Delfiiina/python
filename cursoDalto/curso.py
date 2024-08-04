@@ -37,7 +37,6 @@ print ("Pedro" in bienvenida)
 # definiendo una variable con snake_case
 nombre_completo_tuyo = "Delfina Boyadjian Varde"
 
-
 # Datos compuestos
 lista = ["primero",2,False]
 print (lista)
