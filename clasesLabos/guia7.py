@@ -135,3 +135,29 @@ print (suma_totalV2([]))
 print (suma_totalV2([1,2,(-4)]))
 print (suma_totalV2([5,5,5,5,5]))
 '''
+
+# 4)
+
+def maximo (s:List [int]) -> int:
+    lista:List = s
+    res: int = 0
+    i : int = 0
+    while (i < len(lista)):
+        if lista [i] > res: res = lista[i]
+        i += 1
+    return res
+
+print (maximo([1,2,3]))
+print (maximo([1,2,3,9999]))
+print (maximo([1,2,(-3)]))
+
+def maximoV2 (s:List [int]) -> int:
+    lista: List = s
+    res: int = 0
+    for i in range (len(lista)):
+        if lista[i] > res : res = lista[i]
+    return res 
+
+print (maximoV2([1,2,3]))
+print (maximoV2([1,2,3,9999]))
+print (maximoV2([1,2,(-3)]))
