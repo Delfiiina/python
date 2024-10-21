@@ -71,7 +71,7 @@ for i in [1,2]:
     print (i)
     '''
     
-def divide_a_todosV2 (s: List, e:int) -> bool:
+def divide_a_todosV2 (s: List[int], e:int) -> bool:
     lista: List = s
     numero: int = e
     res: bool = True
@@ -87,7 +87,7 @@ def divide_a_todosV2 (s: List, e:int) -> bool:
 #print(divide_a_todosV2([3,6,9],3))
 #print(divide_a_todosV2([3,6,9],2))    
            
-def divide_a_todosV3 (s: List, e:int) -> bool:
+def divide_a_todosV3 (s: List[int], e:int) -> bool:
     lista: List = s
     numero: int = e
     res: bool = True
@@ -100,8 +100,38 @@ def divide_a_todosV3 (s: List, e:int) -> bool:
             i += 1
     return res    
 
-print(divide_a_todosV3([3,6,9],3))
-print(divide_a_todosV3([3,6,9],2)) 
-   
-#  3)
+#print(divide_a_todosV3([3,6,9],3))
+#print(divide_a_todosV3([3,6,9],2)) 
+#print (10%3)
+#print (3%10)   
 
+
+# 3)
+
+def suma_total (s: List[int]) -> int:
+    lista: List = s
+    mi_suma : int = 0
+    for i in range (len(lista)):
+        mi_suma += lista[i]
+    return mi_suma
+'''
+print (suma_total([1,2,3]))
+print (suma_total([]))
+print (suma_total([1,2,(-4)]))
+print (suma_total([5,5,5,5,5]))
+'''
+       
+def suma_totalV2 (s:List [int]) -> int:
+    lista: List = s
+    mi_suma: int = 0
+    i : int = 0
+    while i < len(lista):
+        mi_suma += lista[i]
+        i += 1
+    return mi_suma 
+'''
+print (suma_totalV2([1,2,3]))
+print (suma_totalV2([]))
+print (suma_totalV2([1,2,(-4)]))
+print (suma_totalV2([5,5,5,5,5]))
+'''

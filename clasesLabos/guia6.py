@@ -12,10 +12,11 @@ def cantidad_de_pizzas (comensales: int, min_cant_de_porciones:int) -> int:
 
 # Ejercicio 3
 
-# 1)
+# 1) 
 def alguno_es_0 (numero1:int, numero2:int) -> bool:
     numeros : int = numero1 + numero2
     return numeros == numero1 or numeros == numero2
+            
 '''
 print (alguno_es_0 (1,2)) # False
 print (alguno_es_0 (0,1)) # True
