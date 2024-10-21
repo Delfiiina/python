@@ -68,9 +68,9 @@ print (es_peso_util (1000.2))
 def sirve_pino (altura:float) -> bool:
     return (es_peso_util(peso_pino(altura)))
 
-print (sirve_pino (20.0))
-print (sirve_pino (47487584774857.0))
-print (sirve_pino (3.0))
+#print (sirve_pino (20.0))
+#print (sirve_pino (47487584774857.0))
+#print (sirve_pino (3.0))
 
 # Ejercicio 5
 
@@ -100,8 +100,8 @@ def lindo_nombre (nombre: str):
     else:
         print ("menos de 5 dj") 
 
-lindo_nombre ("GGGGGG")
-lindo_nombre ("s")
+#lindo_nombre ("GGGGGG")
+#lindo_nombre ("s")
 
 def elRango (numero:int):
     if numero < 5 :
@@ -127,7 +127,7 @@ def argentina (sexo: str, edad:int):
 
 # Ejercicio 6
 # 3)
-# 3)
+
 def eco ():
     contador:int = 0
     while contador < 10:
@@ -144,11 +144,26 @@ def viajes_en_el_tiempo (partida:int, llegada:int):
 # viajes_en_el_tiempo (20,10)
 
 # 6)
+
+def absoluto (numero:int) -> int:
+    if numero < 0:
+        return -numero
+    else: return numero
+    
 def aristoteles (partida:int):
     par:int = partida
     while par > -384:
-        print ("Viajo mucho" + str (par))
+        print ("Viajo mucho " + str (par))
         par -= 20
-    # if par 
+    if (absoluto (par + 384)) < (absoluto ((par + 20) + 384)):
+        print ("Viajo mucho " + str (par))
+    else: 
+        print ("Viajo mucho " + str (par + 20))
 
-aristoteles (10)
+#aristoteles (10)
+
+
+    
+#print (absoluto (8))
+#print (absoluto (0))
+#print (absoluto (-7))
