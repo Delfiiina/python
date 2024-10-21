@@ -45,8 +45,63 @@ def pertenece4 (e:int, s:List [int]) -> bool:
         else : return True
     return False
 
-print (pertenece4 (1, [2,3,1,4,6]))
-print (pertenece4 (3, [1,1,1,1])) 
+#print (pertenece4 (1, [2,3,1,4,6]))
+#print (pertenece4 (3, [1,1,1,1])) 
 
 
 # 2)
+
+def divide_a_todos (s: List [int], e: int) -> bool:
+    lista : List = s
+    numero : int = e
+    contador : int = 0
+    for i in range (len(lista)):
+        if lista[i] % numero == 0:
+            contador += 1
+    if contador == len(lista): return True
+    else : return False
+    
+
+#print(divide_a_todos([3,6,9],3))
+#print(divide_a_todos([3,6,9],2))
+      
+    
+'''
+for i in [1,2]:
+    print (i)
+    '''
+    
+def divide_a_todosV2 (s: List, e:int) -> bool:
+    lista: List = s
+    numero: int = e
+    res: bool = True
+    i: int = 0
+    while (i < len(lista)) and (res == True):
+        if lista[i] % numero != 0:
+            res = False
+        else:
+            i += 1
+    return res 
+
+            
+#print(divide_a_todosV2([3,6,9],3))
+#print(divide_a_todosV2([3,6,9],2))    
+           
+def divide_a_todosV3 (s: List, e:int) -> bool:
+    lista: List = s
+    numero: int = e
+    res: bool = True
+    i: int = 0
+    while (i < len(lista)):
+        if lista[i] % numero != 0:
+            res = False
+            break
+        else:
+            i += 1
+    return res    
+
+print(divide_a_todosV3([3,6,9],3))
+print(divide_a_todosV3([3,6,9],2)) 
+   
+#  3)
+
