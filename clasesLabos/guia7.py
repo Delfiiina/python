@@ -616,12 +616,12 @@ print (cuenta_bancaria([]))
 
 
 # Ejercicio 5
-
+# 1)
+# Pregunta de variable global
 def pertenece_a_cada_uno_version_1 (s:list[list[int]], e:int, res: list[bool]):
-    res: list[bool] = []
     for lista in s:
         res.append(pertenece2(e,lista))
-
+'''''
 lista: list[bool] = [True,False]
 print (lista)
 print(pertenece_a_cada_uno_version_1([[1,2],[1],[2,3]],1,lista))
@@ -630,7 +630,36 @@ print(pertenece_a_cada_uno_version_1([[1,2],[1],[2,3]],2,lista))
 print (lista)
 print(pertenece_a_cada_uno_version_1([[1,2,5],[1,5],[2,3],[],[12,13,6],[5]],5,lista))
 print (lista)
+'''
+
+# 2)
+def pertenece_a_cada_uno_version_2 (s:list[list[int]], e:int, res: list[bool]):
+    res: list[bool] = []
+    for lista in s:
+        res.append(pertenece2(e,lista))
         
-        
+
+# 3) 
+def pertenece_a_cada_uno_version_3 (s:list[list[int]], e:int) -> list[bool]:
+    res: list[bool] = []
+    for lista in s:
+        res.append(pertenece2(e,lista))
     
+    
+# Ejercicio 6
+# 1) FALTA TERMINARLO
+
+def es_matriz (s: list[list[int]]) -> bool:
+    largo_que_vale: int = len (s[0])
+    for i in range (len (s)):
+        return (len(s[i]) == largo_que_vale)
+    
+print (es_matriz([[1,2],[3,4],[5,6]]))
+print (es_matriz([[1,2,3],[3,4],[5,6]]))
+print (es_matriz([[1,2],[3,4,4],[5,6]]))
+print (es_matriz([[1,2],[3,4],[5,6,8]]))
+print (es_matriz([[1,2],[3,4,10],[11,11,5,6]]))
+
+            
+            
     
