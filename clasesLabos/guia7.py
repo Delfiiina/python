@@ -577,16 +577,60 @@ print (todas_mayores_4([1,6]))
 
 '''''
 
-
 def resultadoMateria (notas: list [int]) -> int:
     res:int = 0
-    while todas_mayores_4 (notas):
+    if todas_mayores_4(notas) == True:
+        if promedio (notas) >= 7:
+            return 1
+        else: 
+            return 2
+    else:
+        return 3
         
-
-
+'''''
 print (resultadoMateria([1,7,7,7,7])) #3
 print (resultadoMateria([7,7,7,7])) #1
-print (resultadoMateria([1,7,7,7,7,9,9,9,9,9])) #1
+print (resultadoMateria([1,7,7,7,7,9,9,9,9,9])) #3
 print (resultadoMateria([6,6,6,6,6])) #2
 print (resultadoMateria([1,7,7,7,7,1,1,1,1,1,1,1,1])) #3
+print (resultadoMateria([2,3,4])) #3
+print (resultadoMateria([10,10,10,9,8,7,6,5,4])) #1
+'''
 
+# Ejercicio 4
+
+def cuenta_bancaria (historial: list[(str,int)]) -> int:
+    saldo: int = 0
+    for movimiento in historial:
+        if movimiento[0] == "I":
+            saldo += movimiento[1]
+        else:
+            saldo -= movimiento[1]
+    return saldo 
+'''''
+print (cuenta_bancaria([("I",10),("I",20),("R",5),("I",20),("R",10)]))
+print (cuenta_bancaria([("I",10)]))
+print (cuenta_bancaria([("R",5)]))
+print (cuenta_bancaria([]))
+'''
+
+
+# Ejercicio 5
+
+def pertenece_a_cada_uno_version_1 (s:list[list[int]], e:int, res: list[bool]):
+    res: list[bool] = []
+    for lista in s:
+        res.append(pertenece2(e,lista))
+
+lista: list[bool] = [True,False]
+print (lista)
+print(pertenece_a_cada_uno_version_1([[1,2],[1],[2,3]],1,lista))
+print (lista)
+print(pertenece_a_cada_uno_version_1([[1,2],[1],[2,3]],2,lista))
+print (lista)
+print(pertenece_a_cada_uno_version_1([[1,2,5],[1,5],[2,3],[],[12,13,6],[5]],5,lista))
+print (lista)
+        
+        
+    
+    
