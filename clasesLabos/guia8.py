@@ -35,8 +35,43 @@ mostrar_pila (pila_prueba)
 # PilaAuxiliar queda como pila pero exactamente dada vuelta entonces cuando metemos los elementos de nuevo en pila
 # esta queda como estaba originalmente 
 
+# Ejercicio 2
+'''''
+Ejercicio 2. Implementar una funci´on cantidad elementos(in p : Pila) → int que, dada una pila, cuente y devuelva la cantidad de elementos que contiene. 
+No se puede utilizar la funci´on LifoQueue.qsize(). Si se usa get() para recorrer la pila, esto
+modifica el par´ametro de entrada. Y como la especificaci´on dice que es de tipo in hay que restaurarla
+'''
+def cantidad_elementos (p: Pila[int]) -> int:
+    res: int = 0
+    pila_auxiliar : Pila [int] = Pila()
+    while not p.empty():
+        elemento: int = p.get()
+        res += 1
+        pila_auxiliar.put(elemento)
+        mostrar_pila (p)
+        print (res)
+        mostrar_pila (pila_auxiliar)
+        
+    return res
+    restaurar_pila(p,pila_auxiliar)
+    mostrar_pila (p)
+    mostrar_pila (pila_auxiliar)
+    
+    
+def restaurar_pila (pila: Pila[int], auxiliar: Pila [int]) -> None:
+    while not auxiliar.empty():
+        
+        elemento : int = auxiliar.get()
+        pila.put(elemento)
+        
+        
+pila_de_prueba : Pila [int] = generar_numeros_al_azar (10,0,3)
+print(cantidad_elementos(pila_de_prueba))
+
+
 
 # Ejercicio 
+
 
 def buscar_el_maximo (p:Pila[int]) -> int:
     pila_aux: Pila [int] = Pila()
@@ -93,7 +128,7 @@ def mostrar_cola (cola:Cola[int]) -> None:
     print ("---")
 
 
-mostrar_cola(armar_secuencia_de_bingo())
+#mostrar_cola(armar_secuencia_de_bingo())
 
 # 2)
   
@@ -115,7 +150,7 @@ def jugar_carton_de_bingo (carton: list[int],bolillero: Cola[int]) -> int:
 
 
 # Ejercicio 17
-
+'''''
 def calcular_promedio_por_estudiante (notas: list[tuple[str,float]]) -> dict [str,float]:
     d : dict[str,float] =  {}
     for tupla in notas:
@@ -132,7 +167,7 @@ def calcular_promedio (alumno:str, notas: list [tuple[str,float]]) -> float:
                 suma_notas += nota[1]
         return suma_notas/ cant_notas
     
-'''''
+    
  carton = armar_carton()
 def armar_carton () -> list[int]:
     mi_lista : list [int] = []
