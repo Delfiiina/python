@@ -647,19 +647,214 @@ def pertenece_a_cada_uno_version_3 (s:list[list[int]], e:int) -> list[bool]:
     
     
 # Ejercicio 6
-# 1) FALTA TERMINARLO
+# 1)
 
 def es_matriz (s: list[list[int]]) -> bool:
     largo_que_vale: int = len (s[0])
     for i in range (len (s)):
         return (len(s[i]) == largo_que_vale)
-    
+
+'''''   
 print (es_matriz([[1,2],[3,4],[5,6]]))
 print (es_matriz([[1,2,3],[3,4],[5,6]]))
 print (es_matriz([[1,2],[3,4,4],[5,6]]))
 print (es_matriz([[1,2],[3,4],[5,6,8]]))
 print (es_matriz([[1,2],[3,4,10],[11,11,5,6]]))
+'''
 
-            
+
+def es_matriz (s:list[list[int]]) -> bool:
+    tamano: int = len(s[0])
+    res : bool = True
+    if tamano == 0:
+        res = False
+    else:
+        contador : int = 1
+        while res == True and contador < len(s):
+            for i in range (1,len(s)):
+                if len (s[i]) != tamano:
+                    res = False
+            contador += 1        
+    return res 
+
+
+'''''
+print (es_matriz([[0,1,2],[3,4,5],[5,6,7]])) #True
+print (es_matriz([[],[2,3]])) #False
+print (es_matriz([[3,2,1],[5,6],[2,7,8]])) #False
+print (es_matriz([[8,9],[]])) # False
+print (es_matriz([[1,1,1,1,1,1,1]])) #True
+'''
+
+
+def ordenados (s:list[int]) -> bool:
+    if len(s) == 0:
+        return True
+    culo : int = s[0]
+    res : bool = True
+    contador : int = 1
+    while res == True and contador < len(s):
+        for i in range (1,len(s)):
+            if s[i] > culo: 
+                culo = s[i]
+                contador += 1
+            else:
+                res = False
+    return res
+'''''
+print (ordenados ([1,2,3])) # T
+#print (ordenados ([5,2])) # F
+#print (ordenados ([])) # T
+#print (ordenados([1,1,1,1]))
+print (ordenados([1,4,9,56789]))
+#print (ordenados([7])) #T
+'''
+
+
+def filas_ordenadas (m:list[list[int]], res :list[bool]) -> None:
+    if len(m[0]) == 0:
+        res= [True]
+    res = []
+    for i in range (len(m)):
+        res.append(ordenados(m[i]))
+    print (res)
+
+#filas_ordenadas([[1,2,3],[5,6,8],[3,2,4],[6,6,6],[(-1),0,3]],[True])   
+
+
+
+def columna (m:list[list[int]], e: int) -> list[int]:
+    res : list[int] = []
+    for i in range (len(m)):
+        res.append (m[i][e])
+    return res
+
+'''''
+print (columna([[1,2,3],[4,5,6],[7,8,9],[10,11,12]],0))
+print (columna([[1,2,3],[4,5,6],[7,8,9],[10,11,12]],2))
+print (columna([[1,2,3],[4,5,6],[7,8,9],[10,11,12]],1))
+'''
+
+
+def columnas_ordenadas (m:list[list[int]]) -> list[bool]:
+    res: list [bool] = []
+    for i in range (len(m[0])):
+        res.append(ordenados(columna(m,i)))
+    return res
+ 
+'''''
+print (columnas_ordenadas([[1,1,1],[2,2,2],[3,3,3]])) 
+print (columnas_ordenadas([[1,5,1],[2,2,2],[3,3,3]]))
+print (columnas_ordenadas([[1,1,1],[8,2,2],[3,3,3]]))
+print (columnas_ordenadas([[1,1,1],[2,2,2],[3,3,(-5)]]))
+'''
+
+
+def transponer (m:list[list[int]]) -> list[list[int]]:
+    res: list[list[int]] = []
+    for i in range (len(m[0])):
+        res.append (columna(m,i))
+    return res
+
+#print (transponer([[1,2,3],[4,5,6],[7,8,9]]))
+
+
+def fAux (m:list[list[str]]) -> int:
+    if "X" == m[0][0] == m[0][1] == m[0][2]:
+        return 1
+    elif "O" == m[0][0] == m[0][1] == m[0][2]:
+        return 0
+    elif "X" == m[1][0] == m[1][1] == m[1][2]:
+        return 1
+    elif "O" == m[1][0] == m[1][1] == m[1][2]:
+        return 0
+    elif "X" == m[2][0] == m[2][1] == m[2][2]:
+        return 1
+    elif "O" == m[2][0] == m[2][1] == m[2][2]:
+        return 0
+    else:
+        return 2
+
+
+def fAux2 (m:list[list[str]]) -> int:
+    if m[0][0] == m[1][1] == m[2][2] == "X":
+        return 1
+    elif m[0][2] == m[1][1] == m[2][0] == "O":
+        return 0
+    else:
+        return 2
+
+
+def quien_gana_tateti (m:list[list[int]]) -> int:
+    res: int = 2
+    if fAux (m) != 2:
+        return (fAux(m))
+    elif fAux (transponer(m)) != 2:
+        return fAux (transponer(m))
+    elif fAux2 (m) != 2:
+        return (fAux2(m))
+    return 2
+
+
+#print (quien_gana_tateti([["O","X","O"],["X","X","O"],["O","X","X"]]))
+
+# Ejercicio 7
+# 1) en ambas falla si en vez de ingresar un nombre apreto enter 
+
+def lista_con_nombre () -> list[str]:
+    mi_lista: list[str] = []
+    nombre_estudiante: str = input ("Ingresar nombre de estudiante: ")
+    
+    while nombre_estudiante != "listo" or "":
+        mi_lista.append(nombre_estudiante)
+        nombre_estudiante = input ("Ingresar nombre de estudiante: ")
+        
+    print(mi_lista) 
+       
+#lista_con_nombre()
+          
+ 
+def lista_con_nombre2 () -> list[str]:
+    mi_lista: list[str] = []
+    nombre_estudiante: str = input ("Ingresar nombre de estudiante: ")
+    
+    while nombre_estudiante != "listo" or "":
+        mi_lista.append(nombre_estudiante)
+        nombre_estudiante = input ("Ingresar nombre de estudiante: ")
+        
+    return(mi_lista)
+
+  
+#print(lista_con_nombre2())  
+
+       
+#2)          
+
+
+def historial_monedero () -> list[tuple[str,float]]:
+    historial: list[tuple[str,float]] = []
+    dinero: float = 0
+    paso_del_usuario: str = input ("Desea cargar crédito, descontar crédito o finalizar? ")
+    
+    while paso_del_usuario != "finalizar":
+        if paso_del_usuario == "cargar crédito":
+            cuanto: float = float(input ("Cuánto desea cargar? "))
+            dinero += cuanto
+            historial.append(["C",cuanto])
+            historial.append (["Cargó dinero, actualmente tiene", dinero])
+            paso_del_usuario: str = input ("Desea cargar crédito, descontar crédito o finalizar? ")
+        
+        else:
+            cuanto = float(input ("Cuánto desea descontar? "))
+            historial.append (["D",cuanto])
+            dinero -= cuanto
+            historial.append (["Descontó dinero, actualmente tiene", dinero])
+            paso_del_usuario: str = input ("Desea cargar crédito, descontar crédito o finalizar? ")
+
+    return historial
+    
+print (historial_monedero())
+        
+    
             
     
