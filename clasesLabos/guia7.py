@@ -853,8 +853,73 @@ def historial_monedero () -> list[tuple[str,float]]:
 
     return historial
     
-print (historial_monedero())
-        
+#print (historial_monedero()
+
+
+
+
+# 3
+# 4
+'''''
+4. Analizar la fortaleza de una contrase˜na. Solicitar al usuario que ingrese un texto que ser´a su contrase˜na. Armar una
+funci´on que tenga de par´ametro de entrada un string con la contrase˜na a analizar, y la salida otro string con tres
+posibles valores: VERDE, AMARILLA y ROJA. Nota: en python la “˜n/N” es considerado un car´acter especial y no ˜
+se comporta como cualquier otra letra. String es seq⟨Char⟩. Consejo: para ver si una letra es may´uscula se puede ver
+si est´a ordenada entre A y Z.
+La contrase˜na ser´a VERDE si:
+a) la longitud es mayor a 8 caracteres
+b) tiene al menos 1 letra min´uscula.
+c) tiene al menos 1 letra may´uscula.
+d) tiene al menos 1 d´ıgito num´erico (0..9)
+La contrase˜na ser´a ROJA si:
+a) la longitud es menor a 5 caracteres.
+En caso contrario ser´a AMARILLA.
+       '''
+       
+contraseña : str = input ("Ingresar contraseña: ")
+def fortaleza_contraseña (contraseña: str) -> str:
+    if len(contraseña) < 5 :
+        return "ROJA"
+    elif len (contraseña) > 8 and letra_minuscula(contraseña) and letra_mayuscula(contraseña) and tiene_numero(contraseña):
+        return "VERDE"
+    else:
+        return "AMARILLA"
     
-            
+def letra_minuscula (s:str) -> bool:
+    res : bool = False
+    
+    for letra in s:
+        if letra >= "a" and letra <= "z":
+            return True
+            break
+    
+    return res
+        
+        
+def letra_mayuscula (s:str) -> bool:
+    res: bool = False
+    for letra in s:
+        if letra >= "A" and letra <= "Z":
+            return True
+            break
+
+    return res
+        
+def tiene_numero (s:str) -> bool:
+    res: bool = False
+    for letra in s:
+        if letra >= "0" and letra <= "9":
+            return True
+            break
+
+    return res
+        
+print(fortaleza_contraseña(contraseña))
+        
+''''' 
+print (letra_minuscula("DELfinaaaaa123"))
+print (letra_mayuscula("DELfinaaaaa123"))
+print (tiene_numero("4DELfinaaaaa123"))        
+'''       
+        
     
