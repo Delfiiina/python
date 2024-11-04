@@ -1,4 +1,5 @@
 from typing import List, Dict, Tuple
+import random
 
 # Ejercicio 1
 # 1)
@@ -859,22 +860,42 @@ def historial_monedero () -> list[tuple[str,float]]:
 
 
 # 3
-# 4
 '''''
-4. Analizar la fortaleza de una contrase˜na. Solicitar al usuario que ingrese un texto que ser´a su contrase˜na. Armar una
-funci´on que tenga de par´ametro de entrada un string con la contrase˜na a analizar, y la salida otro string con tres
-posibles valores: VERDE, AMARILLA y ROJA. Nota: en python la “˜n/N” es considerado un car´acter especial y no ˜
-se comporta como cualquier otra letra. String es seq⟨Char⟩. Consejo: para ver si una letra es may´uscula se puede ver
-si est´a ordenada entre A y Z.
-La contrase˜na ser´a VERDE si:
-a) la longitud es mayor a 8 caracteres
-b) tiene al menos 1 letra min´uscula.
-c) tiene al menos 1 letra may´uscula.
-d) tiene al menos 1 d´ıgito num´erico (0..9)
-La contrase˜na ser´a ROJA si:
-a) la longitud es menor a 5 caracteres.
-En caso contrario ser´a AMARILLA.
-       '''
+3. Vamos a escribir un programa para simular el juego conocido como 7 y medio. El mismo deber´a generar un n´umero
+aleatorio entre 0 y 12 (excluyendo el 8 y 9) y deber´a luego preguntarle al usuario si desea seguir sacando otra “carta”
+o plantarse. En este ´ultimo caso el programa debe terminar. Los n´umeros aleatorios obtenidos deber´an sumarse seg´un
+el n´umero obtenido salvo por las “figuras” (10, 11 y 12) que sumar´an medio punto cada una. El programa debe ir
+acumulando los valores y si se pasa de 7.5 debe informar que el usuario ha perdido. Al finalizar la funci´on devuelve
+el historial de “cartas” que hizo que el usuario gane o pierda. Para generar n´umeros pseudo-aleatorios entre 1 y 12
+utilizaremos la funci´on random.randint(1,12). Al mismo tiempo, la funci´on random.choice() puede ser de gran
+ayuda a la hora de repartir cartas.
+'''
+
+def siete_y_medio () -> list [float]:
+    valor: float = 0
+    respuesta: str = "SI"
+    jugadas : list [float] = []
+    cartas : list [int] = [1,2,3,4,5,6,7,10,11,12] 
+    while respuesta == "SI":
+        carta_que_salio: int = random.choice (cartas)
+        print ("Tu carta es " + str(carta_que_salio))
+        if pertenece2 (carta_que_salio,[10,11,12]):
+            carta_que_salio = 0.5
+        valor += carta_que_salio
+        jugadas.append(carta_que_salio)
+        
+        if valor > 7.5 :
+            print ("Perdiste")
+            print (jugadas)
+            break
+        respuesta = input("Sacar otra carta (SI/NO): ")
+    if respuesta == "NO":
+        return jugadas
+    
+siete_y_medio()
+#Le falta un poco pero va bien 
+
+# 4
        
 contraseña : str = input ("Ingresar contraseña: ")
 def fortaleza_contraseña (contraseña: str) -> str:
@@ -914,7 +935,7 @@ def tiene_numero (s:str) -> bool:
 
     return res
         
-print(fortaleza_contraseña(contraseña))
+#print(fortaleza_contraseña(contraseña))
         
 ''''' 
 print (letra_minuscula("DELfinaaaaa123"))
