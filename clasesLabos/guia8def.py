@@ -65,16 +65,43 @@ pila_de_prueba : Pila [int] = Pila ()
 for num in [3,2,1,0]:
     pila_de_prueba.put (num)
     
-print(cantidad_elementos(pila_de_prueba))
+#print(cantidad_elementos(pila_de_prueba))
 
 
 # Ejercicio 4
 
 '''''
-Dada una pila de tuplas de string x enteros, implementar una funci´on buscar nota maxima(in p : Pila[tuple[str, int]]) →que devuelva la tupla donde aparece la m´axima nota (segunda componente de la tupla). La pila no est´a vac´ıa, no hay valores en
+Dada una pila de tuplas de string x enteros, implementar una funci´on buscar nota maxima(in p : Pila[tuple[str, int]]) → 
+que devuelva la tupla donde aparece la m´axima nota (segunda componente de la tupla). La pila no est´a vac´ıa, no hay valores en
 las segundas posiciones repetidas en la pila.
 '''
+
 def buscar_nota_maxima (p:Pila[tuple[str,int]]) -> tuple[str,int]:
     
+    tupla_max_actual : tuple[str,int] = p.get()
+    print ("la tupla actual es ", tupla_max_actual)
+        
+    pila_auxiliar : Pila [tuple[str,int]] = Pila ()
+    pila_auxiliar = pila_auxiliar.put(tupla_max_actual)
+    print ("con la tupla que saque la pila auxiliar queda:")
+    mostrar_pila (pila_auxiliar)
+    while not p.empty():    
+        actual : tuple[str,int] = p.get()
+        pila_auxiliar.put(actual)
+        print ("con la tupla que saque la pila auxiliar queda:")
+        if actual[1] > tupla_max_actual [1]:
+            tupla_max_actual = actual
+            print ("ahora el maximo es ", tupla_max_actual)
+
+    restaurar_pila (p,pila_auxiliar)
+    print ("la nota máxima esta en la tupla: ", tupla_max_actual)
+    return tupla_max_actual
 
 
+pila_de_notas: Pila [tuple[str,int]] = Pila ()
+for elem in [("a",7),("b",5),("c",9),("f",1)]:
+    pila_de_notas.put(elem)
+    
+#print (buscar_nota_maxima(pila_de_notas))
+        
+   
