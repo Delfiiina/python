@@ -70,7 +70,7 @@ print(cantidad_elementos(pila_de_prueba))
 
 
 
-# Ejercicio 
+# Ejercicio 3
 
 
 def buscar_el_maximo (p:Pila[int]) -> int:
