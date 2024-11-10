@@ -159,10 +159,12 @@ def esta_bien_balanceada (s:str) -> bool:
                 break
     return (pila.empty())
 
+'''''
 print (esta_bien_balanceada("(1+2)-2"))
 print (esta_bien_balanceada("(1+2)-2)"))
 print (esta_bien_balanceada("(1+2)-2*(5"))
 print (esta_bien_balanceada("((1+2)-2)"))
+'''
 
 # Ejercicio 6
 
@@ -213,7 +215,7 @@ def evaluar_expresion (s: str) -> float:
 
 #print (evaluar_expresion("1 1 + 5 * 3 + 7 /"))
 #print (evaluar_expresion("1 6 + 8 * 2 /"))
-print (evaluar_expresion("13 56 + 23 /"))
+#print (evaluar_expresion("13 56 + 23 /"))
 # Falta corregirlo 
 
 # Ejercicio 7 FALTA
@@ -360,7 +362,7 @@ def existe_palabra (palabra: str, nombre_archivo:str) -> bool:
     archivo.close()
     return palabra in listas    
 
-print (existe_palabra("hola", "hola.txt"))
+#print (existe_palabra("hola", "hola.txt"))
 
 
 # Ejercicio 16 

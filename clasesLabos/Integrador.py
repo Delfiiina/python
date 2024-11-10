@@ -27,12 +27,9 @@ def palabras_separadas (nombre_archivo: str, caracter: str ) -> list [str]:
     archivo.close() # Cierro el archivo
     return respuesta
     
-print (palabras_separadas("integradorEjs.txt","m"))
+print (palabras_separadas("conceptos1.txt","m"))
 
-# Si entendí bien el ejercicio tendría que funcionar(??) Pero no puedo probarlo.
-# ["banana","m","manzana","m","jugo","m","pera","m","uva"]
-
-# Utilizar la función anterior para los dos archivos provistos y generar una lista de strings para cada uno
+# 2) Utilizar la función anterior para los dos archivos provistos y generar una lista de strings para cada uno
     
 # Sin separar por nada(?)
   
