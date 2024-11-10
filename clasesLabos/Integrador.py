@@ -16,10 +16,9 @@ def palabras_separadas (nombre_archivo: str, caracter: str ) -> list [str]:
     respuesta: list[str] = []
     palabra_actual: str = ""
     
-    for caracter in datos: #Por cada caracter que hay en mi str
-        if caracter == "." or caracter == ";":
-            respuesta.append(palabra_actual) # Por cada punto (cada palabra) meto a la lista la palabra que ya fui guardando y también el caracter 
-            respuesta.append (caracter) # No sé si puedo ponerlo todo junto o tengo que hacer 2 append's
+    for letra in datos: #Por cada caracter que hay en mi str
+        if letra == caracter:
+            respuesta.append(palabra_actual) # Por cada palabra, la meto a la lista ya que la fui guardando 
             palabra_actual = "" # borro palabra 
         else:
             palabra_actual += caracter # Voy guardando cada palabra
@@ -27,9 +26,8 @@ def palabras_separadas (nombre_archivo: str, caracter: str ) -> list [str]:
     archivo.close() # Cierro el archivo
     return respuesta
     
-print (palabras_separadas("conceptos1.txt","m"))
+print (palabras_separadas("conceptos1.txt","."))
 
 # 2) Utilizar la función anterior para los dos archivos provistos y generar una lista de strings para cada uno
     
 # Sin separar por nada(?)
-  
