@@ -35,13 +35,8 @@ mostrar_pila (pila_prueba)
 mostrar_pila (pila_prueba) 
 '''
 
-
 # Ejercicio 2
-'''''
-Ejercicio 2. Implementar una funci´on cantidad elementos(in p : Pila) → int que, dada una pila, cuente y devuelva la cantidad de elementos que contiene. 
-No se puede utilizar la funci´on LifoQueue.qsize(). Si se usa get() para recorrer la pila, esto
-modifica el par´ametro de entrada. Y como la especificaci´on dice que es de tipo in hay que restaurarla
-'''
+
 def cantidad_elementos (p: Pila[int]) -> int:
     res: int = 0
     pila_auxiliar : Pila [int] = Pila()
@@ -109,12 +104,6 @@ pila_prueba2: Pila [int] = generar_numeros_al_azar (5,0,3)
 
 # Ejercicio 4
 
-'''''
-Dada una pila de tuplas de string x enteros, implementar una funci´on buscar nota maxima(in p : Pila[tuple[str, int]]) → 
-que devuelva la tupla donde aparece la m´axima nota (segunda componente de la tupla). La pila no est´a vac´ıa, no hay valores en
-las segundas posiciones repetidas en la pila.
-'''
-
 def buscar_nota_maxima (p:Pila[tuple[str,int]]) -> tuple[str,int]:
     
     tupla_max_actual : tuple[str,int] = p.get()
@@ -135,7 +124,6 @@ def buscar_nota_maxima (p:Pila[tuple[str,int]]) -> tuple[str,int]:
     restaurar_pila (p,pila_auxiliar)
     print ("la nota máxima esta en la tupla: ", tupla_max_actual)
     return tupla_max_actual
-
 
 pila_de_notas: Pila [tuple[str,int]] = Pila ()
 for elem in [("a",7),("b",5),("c",9),("f",1)]:
@@ -168,7 +156,6 @@ print (esta_bien_balanceada("((1+2)-2)"))
 
 # Ejercicio 6
 
-
 def hacer_cuenta (s: str, m:str, a: str) -> float:
     elemento1 : float = float(s)
     elemento2 : float = float(m)
@@ -184,7 +171,6 @@ def hacer_cuenta (s: str, m:str, a: str) -> float:
         res = elemento2 / elemento1
     
     return res 
-
 
 def evaluar_expresion (s: str) -> float:
     operandos : Pila = Pila()
@@ -212,15 +198,69 @@ def evaluar_expresion (s: str) -> float:
     
     return operandos.get()
 
-
 #print (evaluar_expresion("1 1 + 5 * 3 + 7 /"))
 #print (evaluar_expresion("1 6 + 8 * 2 /"))
 #print (evaluar_expresion("13 56 + 23 /"))
 # Falta corregirlo 
 
-# Ejercicio 7 FALTA
+# Ejercicio 7 
+
+def intercalar (p1:Pila, p2:Pila) -> Pila:
+    pila_res: Pila = Pila()
+    pila_aux_1 : Pila = Pila () #Para restaurar al final
+    pila_aux_2 : Pila = Pila () #Para restaurar al final
+    pila_dadavuelta_1 : Pila = Pila ()
+    pila_dadavuelta_2 : Pila = Pila ()
+
+    while not p1.empty():  # Tendría que quedar la pila dada vuelta (lo que me sirve)
+        elem : int = p1.get()
+        pila_aux_1.put(elem)
+        pila_dadavuelta_1.put(elem)
+        
+    while not p2.empty():  # Tendría que quedar la pila dada vuelta (lo que me sirve)
+        elem : int = p2.get()
+        pila_aux_2.put(elem)
+        pila_dadavuelta_2.put(elem)
+        
+    while (not pila_dadavuelta_1.empty()) and (not pila_dadavuelta_2.empty()):
+        elemto_a_meter: int = pila_dadavuelta_1.get()
+        pila_res.put(elemto_a_meter)
+        elemto_a_meter = pila_dadavuelta_2.get()
+        pila_res.put(elemto_a_meter)
+        
+    restaurar_pila (p1,pila_aux_1)
+    restaurar_pila (p2, pila_aux_2)
+    
+    return pila_res    
+        
+pilita1 = Pila ()
+pilita1.put(1)
+pilita1.put(2)
+pilita1.put(3)
+pilita1.put(4)
+
+pilita2 = Pila ()
+pilita2.put(5)
+pilita2.put(6)
+pilita2.put(7)
+pilita2.put(8)
+
+print ("mi pila1 original: ")
+print (pilita1.queue)
+print ("mi pila 2 original: ")
+print (pilita2.queue)
+
+print ("Ahora la función: ")
+print (intercalar(pilita1,pilita2).queue)
+print ("mi pila1 que debería estar igual:")
+print (pilita1.queue)
+print ("mi pila2 que debería estar igual:")
+print (pilita2.queue)
+
 # Ejercicios de colas-
+
 # Ejercicio 8
+
 # Ejercicio 13
 
 def armar_secuencia_de_bingo () -> Cola[int]:
