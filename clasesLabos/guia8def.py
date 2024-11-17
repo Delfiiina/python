@@ -355,16 +355,38 @@ cola_de_notas.put(("c",8))
 cola_de_notas.put(("d",10))
 cola_de_notas.put(("e",9))
 
-print (buscar_nota_minima(cola_de_notas))
+#print (buscar_nota_minima(cola_de_notas))
 
 # Ejercicio 12
 
+def intercalar_c (c1:Cola[int], c2:Cola[int]) -> Cola[int]:
+    # la diferencia con el ej de pilas es que como son colas no tengo que darla vuelta
+    cola1_aux : Cola[int] = Cola ()
+    cola2_aux : Cola[int] = Cola ()
+    respuesta : Cola[int] = Cola ()
+    
+    while not c2.empty():
+        elemento1 : int = c1.get()
+        cola1_aux.put(elemento1)
+        respuesta.put(elemento1)
+        elemento2: int = c2.get()
+        cola2_aux.put(elemento2)
+        respuesta.put(elemento2)
+    
+    restaurar_cola(c1,cola1_aux)
+    restaurar_cola(c2,cola2_aux)
+    
+    return respuesta
 
+cola11 = Cola()
+cola11.put(1)
+cola11.put(1)
 
+cola22 = Cola()
+cola22.put(2)
+cola22.put(2)
 
-
-
-
+#print (intercalar_c(cola11,cola22).queue)
 
 # Ejercicio 13
 
