@@ -232,7 +232,7 @@ def intercalar (p1:Pila, p2:Pila) -> Pila:
     restaurar_pila (p2, pila_aux_2)
     
     return pila_res    
-        
+''''      
 pilita1 = Pila ()
 pilita1.put(1)
 pilita1.put(2)
@@ -256,10 +256,34 @@ print ("mi pila1 que debería estar igual:")
 print (pilita1.queue)
 print ("mi pila2 que debería estar igual:")
 print (pilita2.queue)
+'''''
 
 # Ejercicios de colas-
 
 # Ejercicio 8
+
+def generar_nros_al_azar (cantidad: int, desde: int, hasta:int) -> Cola:
+    res: Cola = Cola()
+    cantidadd : int = cantidad # los int los pasa por copia, entonces no modifiqué a cantidad (que era in)
+    
+    while cantidadd > 0:
+        res.put(random.randint(desde,hasta))
+        cantidadd -= 1
+    
+    return res
+
+print (generar_nros_al_azar(15,1,9).queue)
+
+# Ejercicios 9
+
+
+
+
+
+
+
+
+
 
 # Ejercicio 13
 
