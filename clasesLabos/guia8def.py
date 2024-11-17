@@ -334,7 +334,30 @@ def buscar_el_maximo (c:Cola[int]) -> int:
 # Ejercicio 11
 
 def buscar_nota_minima (c: Cola[str,int]) -> tuple[str,int]:
+    cola_auxiliar: Cola[str,int] = Cola()
     
+    nota_minima : tuple[str,int] = c.get()
+    cola_auxiliar.put(nota_minima)
+    
+    while not c.empty():
+        elemento : tuple[str,int] = c.get()
+        cola_auxiliar.put(elemento)
+        if nota_minima[1] > elemento[1]:
+            nota_minima = elemento
+        
+    restaurar_cola(c, cola_auxiliar)
+    return nota_minima
+
+cola_de_notas = Cola()
+cola_de_notas.put(("a",7))
+cola_de_notas.put(("b",4))
+cola_de_notas.put(("c",8))
+cola_de_notas.put(("d",10))
+cola_de_notas.put(("e",9))
+
+print (buscar_nota_minima(cola_de_notas))
+
+# Ejercicio 12
 
 
 
