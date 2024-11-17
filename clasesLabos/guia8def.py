@@ -260,6 +260,21 @@ print (pilita2.queue)
 
 # Ejercicios de colas-
 
+#######################################################
+
+
+def restaurar_cola (cola:Cola, auxiliar:Cola) -> Cola:
+    #la cola va a estar vacía y auxiliar va a tener todos los elementos ordenados.
+    
+    while not auxiliar.empty():
+        elemento = auxiliar.get()
+        cola.put(elemento)
+        
+    return cola
+
+
+########################################################    
+
 # Ejercicio 8
 
 def generar_nros_al_azar (cantidad: int, desde: int, hasta:int) -> Cola:
@@ -272,11 +287,54 @@ def generar_nros_al_azar (cantidad: int, desde: int, hasta:int) -> Cola:
     
     return res
 
-print (generar_nros_al_azar(15,1,9).queue)
+#print (generar_nros_al_azar(15,1,9).queue)
 
 # Ejercicios 9
 
+def cantidad_elementos (c:Cola) -> int:
+    lista : list[int] = []
+    cola_auxiliar : Cola = Cola()
+    
+    while not c.empty():
+        elemento : int = c.get()
+        cola_auxiliar.put(elemento)
+        lista.append(elemento)
+        
+    return len(lista)
 
+
+colaw = Cola()
+colaw.put(1)
+colaw.put(2)
+colaw.put(1)
+colaw.put(4)
+colaw.put(9)
+#print (cantidad_elementos(colaw))
+        
+# Ejercicio 10
+
+def buscar_el_maximo (c:Cola[int]) -> int:
+    cola_auxiliar : Cola[int] = Cola()
+    
+    maximo : int = c.get()
+    cola_auxiliar.put(maximo)
+    
+    while not c.empty():
+        elemento : int = c.get()
+        cola_auxiliar.put(elemento)
+        if maximo < elemento:
+            maximo = elemento
+            
+    respuesta : int = maximo
+    restaurar_cola(c,cola_auxiliar)    
+    return respuesta
+
+#print (buscar_el_maximo(colaw))
+
+# Ejercicio 11
+
+def buscar_nota_minima (c: Cola[str,int]) -> tuple[str,int]:
+    
 
 
 
