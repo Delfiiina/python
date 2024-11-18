@@ -388,7 +388,42 @@ cola22.put(2)
 
 #print (intercalar_c(cola11,cola22).queue)
 
-# Ejercicio 13
+# Ejercicio 13 (mio)
+# 1)
+
+def armar_secuencia_de_bingo () -> Cola[int]:
+    lista : list[int] = [] # La inicializo vacía ya que necesito una lista pq es lo que recibe la función random.shuffle
+    cola : Cola[int] = Cola()
+    
+    for elemento in range (25):
+        lista.append(elemento)
+        
+    random.shuffle(lista)
+    
+    for elem in lista:
+        cola.put(elem)
+    
+    return cola
+        
+#print (armar_secuencia_de_bingo().queue)
+
+# 2)
+
+def  jugar_carton_de_bingo(carton : list[int], bolillero : Cola[int]) -> int:
+    
+
+
+
+
+
+
+
+
+
+
+
+
+''' Ejercicio 13
 
 def armar_secuencia_de_bingo () -> Cola[int]:
     mi_secuencia: Cola[int] = Cola ()
@@ -401,13 +436,13 @@ def armar_secuencia_de_bingo () -> Cola[int]:
     return mi_secuencia
 
 
-'''''
+
 mi_lista : list [int] = []
     for i in range (100):
         mi_lista.append(i)
 Es lo mismo que
 mi_lista : list [int] = range (100)
-'''
+
 
 # random.shuffle () es con listas 
 # Para que no ocurra el error de que tenga numeros repetidos 
@@ -443,6 +478,7 @@ def jugar_carton_de_bingo (carton: list[int],bolillero: Cola[int]) -> int:
         bolillero.put(cola_aux.get())
     return jugadas 
 
+'''
 
 # Ejercicio 17
 '''''
