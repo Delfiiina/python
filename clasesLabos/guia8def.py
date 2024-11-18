@@ -395,7 +395,7 @@ def armar_secuencia_de_bingo () -> Cola[int]:
     lista : list[int] = [] # La inicializo vacía ya que necesito una lista pq es lo que recibe la función random.shuffle
     cola : Cola[int] = Cola()
     
-    for elemento in range (25):
+    for elemento in range (26):
         lista.append(elemento)
         
     random.shuffle(lista)
@@ -410,18 +410,29 @@ def armar_secuencia_de_bingo () -> Cola[int]:
 # 2)
 
 def  jugar_carton_de_bingo(carton : list[int], bolillero : Cola[int]) -> int:
+    cola_aux : Cola [int] = Cola ()
+    contador : int = 0
+    coincidencias : int = 5 #tendrian que ser 12 pero achiqué todo el juego)
     
+    while not bolillero.empty():
+        saco_elemento : int = bolillero.get()
+        cola_aux.put(saco_elemento)
+        contador += 1
+        if saco_elemento in carton:
+            coincidencias -= 1
+        if coincidencias == 0:
+            return contador
+    restaurar_cola (bolillero,cola_aux)
+    
+    
+carton_prueba = [0,1,2,3,4]
+bolillero_prueba = armar_secuencia_de_bingo()
 
-
-
-
-
-
-
-
-
-
-
+#print ("el carton es: " + str(carton_prueba))
+#print ("el bolillero es: " + str (bolillero_prueba.queue))
+#print (jugar_carton_de_bingo(carton_prueba,bolillero_prueba)) 
+            
+# De clase:
 
 ''' Ejercicio 13
 
@@ -480,8 +491,50 @@ def jugar_carton_de_bingo (carton: list[int],bolillero: Cola[int]) -> int:
 
 '''
 
+# Ejercicio 14
+
+def n_pacientes_urgentes (c: Cola[tuple[int,str,str]]) -> int:
+    cola_aux: Cola = Cola ()
+    pacientes_urgentes : int = 0
+    
+    
+    while not c.empty():
+        tupla: tuple[int,str,str] = c.get()
+        cola_aux.put(tupla)
+        if tupla[0] in [1,2,3]:
+            pacientes_urgentes += 1
+    
+    restaurar_cola (c,cola_aux)
+    
+    return pacientes_urgentes
+        
+pacientes_cola = Cola()
+pacientes_cola.put((6,"a","a"))
+pacientes_cola.put((4,"b","b"))
+pacientes_cola.put((5,"c","c"))
+pacientes_cola.put((7,"d","d"))
+pacientes_cola.put((8,"e","e"))
+
+#print (n_pacientes_urgentes(pacientes_cola))
+        
+# Ejercicio 15   
+# . Implementar atencion a clientes(in c : Cola[tuple[str, int, bool, bool]]) → Cola[tuple[str, int, bool, bool]] 
+# que dada la cola de ingreso de clientes al banco devuelve la cola en la que van a ser atendidos.
+# La atenci´on a los clientes se da por el siguiente orden: primero las personas que tienen prioridad, luego las que tienen cuenta
+# bancaria preferencial y por ´ultimo el resto. Dentro de cada subgrupo de clientes, se respeta el orden de llegada.
+
+def atencion_a_clientes (c:Cola[tuple[str,int,bool,bool]]) -> Cola[tuple[str,int,bool,bool]]:
+    cola_aux : Cola [tuple[str,int,bool,bool]] = Cola()
+    
+
+
+
+
+
+
 # Ejercicio 17
-'''''
+
+'''
 def calcular_promedio_por_estudiante (notas: list[tuple[str,float]]) -> dict [str,float]:
     d : dict[str,float] =  {}
     for tupla in notas:
@@ -510,7 +563,7 @@ def armar_carton () -> list[int]:
         for elem in mi_lista:
             mi_carton.append (elem)
     return mi_carton
-    '''
+'''
 
 def contar_lineas (nombre_archivo: str) -> int:
     archivo : TextIO = open (nombre_archivo,"r", encoding= "utf-8")
