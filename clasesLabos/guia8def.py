@@ -518,16 +518,54 @@ pacientes_cola.put((8,"e","e"))
 #print (n_pacientes_urgentes(pacientes_cola))
         
 # Ejercicio 15   
-# . Implementar atencion a clientes(in c : Cola[tuple[str, int, bool, bool]]) → Cola[tuple[str, int, bool, bool]] 
-# que dada la cola de ingreso de clientes al banco devuelve la cola en la que van a ser atendidos.
-# La atenci´on a los clientes se da por el siguiente orden: primero las personas que tienen prioridad, luego las que tienen cuenta
-# bancaria preferencial y por ´ultimo el resto. Dentro de cada subgrupo de clientes, se respeta el orden de llegada.
 
 def atencion_a_clientes (c:Cola[tuple[str,int,bool,bool]]) -> Cola[tuple[str,int,bool,bool]]:
     cola_aux : Cola [tuple[str,int,bool,bool]] = Cola()
+    res : Cola [tuple[str,int,bool,bool]] = Cola ()
+    prioridad  : Cola [tuple[str,int,bool,bool]] = Cola ()
+    preferencial  : Cola [tuple[str,int,bool,bool]] = Cola ()
+    resto  : Cola [tuple[str,int,bool,bool]] = Cola ()
     
+    while not c.empty():
+        elemento : tuple[str,int,bool,bool] = c.get()
+        cola_aux.put(elemento)
+        
+        if elemento [3] == True:
+            prioridad.put(elemento)
+        elif elemento [2] == True:
+            preferencial.put(elemento)
+        else:
+            resto.put(elemento)
+    
+    while not prioridad.empty():
+        elemento_prio : tuple[str,int,bool,bool] = prioridad.get()
+        res.put(elemento_prio)
+    
+    while not preferencial.empty():
+        elemento_pref : tuple[str,int,bool,bool] = preferencial.get()
+        res.put(elemento_pref)
+    
+    while not resto.empty():
+        elemento_rest : tuple[str,int,bool,bool] = resto.get()
+        res.put(elemento_rest)
+    
+    restaurar_cola(c, cola_aux)
+    
+    return res
+
+colaa = Cola ()
+colaa.put(("a",123,True,False))
+colaa.put(("b",234,False,False))
+colaa.put(("c",345,False,True))
+colaa.put(("d",456,True,True))
+
+print (colaa.queue)
+print (atencion_a_clientes(colaa).queue)
+print (colaa.queue)
 
 
+# Ejercicios de diccionarios -
+# Ejercicio 16
 
 
 
