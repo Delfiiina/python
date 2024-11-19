@@ -559,13 +559,60 @@ colaa.put(("b",234,False,False))
 colaa.put(("c",345,False,True))
 colaa.put(("d",456,True,True))
 
-print (colaa.queue)
-print (atencion_a_clientes(colaa).queue)
-print (colaa.queue)
+#print (colaa.queue)
+#print (atencion_a_clientes(colaa).queue)
+#print (colaa.queue)
 
 
 # Ejercicios de diccionarios -
-# Ejercicio 16
+# Ejercicio 16 (Mio)
+
+def agrupar_por_longitud (nombre_archivo:str) -> dict[int,int]:
+    palabra : str = ""
+    lista : list[str] = []
+    diccionario :dict [int,int] = {}
+  
+    archivo : TextIO = open (nombre_archivo,"r", encoding= "utf-8")
+    lineas : list[str] = archivo.readlines()
+  
+    for linea in lineas:
+        for caracter in linea:
+            if caracter == " " or caracter == "\n":
+                lista.append(palabra)
+                palabra = ""
+            else:
+                palabra += caracter
+      
+    lista.append(palabra)
+    
+    for cada_palabra in lista:
+        if len(cada_palabra) not in diccionario.keys():
+            diccionario[len(cada_palabra)] = 1
+        else:
+            diccionario[len(cada_palabra)] += 1
+    
+  
+    archivo.close()
+    return diccionario
+
+print (agrupar_por_longitud(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
+
+'''
+Ejercicio 17. Dada una secuencia de tuplas, donde cada tupla tiene en la primera componente el nombre de un estudiante,
+y en la esgunda componenete la nota que saco en un examen; se pide devolver un diccionario con los promedios de todos los
+estudiantes. La clave del diccionario debe ser el nombre del estudiante, y el valor el promedio de todos sus examenes.
+calcular promedio por estudiante(notas : list[tuple[str, float]]) → dict[str, float]
+Ejercicio 18. Implementar la funcion la palabra mas frecuente(in nombre archivo : str) → str que devuelve la palabra
+que mas veces aparece en un archivo de texto. Se aconseja utilizar un diccionario de palabras para resolver el problema.
+'''
+
+# Ejercicio 17 (Mio)
+
+
+
+
+
+
 
 
 
