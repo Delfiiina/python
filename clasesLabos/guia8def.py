@@ -670,6 +670,54 @@ def armar_carton () -> list[int]:
 
 # Ejercicio 18
 
+def cantidad_de_apariciones (palabra: str, nombre_archivo:str) -> int:
+    archivo : TextIO = open (nombre_archivo, "r", encoding="utf-8")
+    palabra_armada : str = ""
+    contador : int = 0
+    
+    
+    for linea in archivo.readlines():
+        for caracter in linea:
+            if caracter == " " or caracter == "\n":
+                palabra_armada = ""
+            else:
+                palabra_armada += caracter
+                if palabra_armada == palabra:
+                    contador += 1
+
+    return contador
+
+#print(cantidad_de_apariciones("hola",r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt")) 
+
+def la_palabra_mas_frecuente (nombre_archivo: str) -> str:
+    archivo : TextIO = open (nombre_archivo, "r", encoding="utf-8")
+    palabra : str = ""
+    diccionario : dict [str,int] = {}
+    
+    for linea in archivo.readlines():
+        for caracter in linea:
+            if caracter == " " or caracter == "\n":
+                if palabra not in diccionario.keys():
+                    diccionario[palabra] = cantidad_de_apariciones(palabra, nombre_archivo)
+                palabra = ""
+            else:
+                palabra += caracter
+    palabra_max : str = list(diccionario.items()) [0][0]
+    maximo : int = list(diccionario.items()) [0][1]
+    for tupla in list(diccionario.items()):
+        if tupla[1] > maximo:
+            maximo = tupla[1]
+            palabra_max = tupla[0]
+        
+    return palabra_max
+
+print (la_palabra_mas_frecuente(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
+                
+    
+    
+    
+    
+    
 
 
 
