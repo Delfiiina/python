@@ -1,6 +1,6 @@
-from queue import LifoQueue as Pila, Queue as Cola
+
 from typing import List, TextIO
-import random
+
 
 
 # 1) Implementar una función que tome como entrada un archivo txt y un carácter y devuelva una lista de las palabras que se encuentran en el archivo,
@@ -109,7 +109,7 @@ def todos_elementos_sinrepes (a: str, b: str) -> list[str]:
 
     return res
 
-# Armar un pertenece
+# Armar un pertenece 
 #print (todos_elementos_sinrepes("conceptos.txt","conceptos2.txt"))
 
 
@@ -124,5 +124,24 @@ def todos_elementos_sinrepes (a: str, b: str) -> list[str]:
     
 def sacar_mitad_repetidos (a:list[int], b:list[int], rEP: list[list[int]]) -> list[list[int]]:
     res : list[list[int]] = [] 
+    a_nueva : list[int] = []
+    b_nueva : list[int] = []
     
+    for numero in a:
+        if numero not in rEP[0]:
+            a_nueva.append(numero)
+    for numero in b:
+        if numero not in rEP[1]:
+            b_nueva.append(numero)
+    for i in range (0,len(rEP),2):
+        a_nueva.append(rEP[0][i])
+    for i in range (1,len(rEP),2):
+        b_nueva.append(rEP[1][i])
+       
+    res.append(a_nueva)
+    res.append(b_nueva)
     
+    return res
+
+#print (sacar_mitad_repetidos([0,1,2,3,4],[1,5,6,3,7],[[1,3],[1,3]]))
+        
