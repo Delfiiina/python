@@ -123,6 +123,6 @@ def todos_elementos_sinrepes (a: str, b: str) -> list[str]:
             
     
 def sacar_mitad_repetidos (a:list[int], b:list[int], rEP: list[list[int]]) -> list[list[int]]:
-    res : list[list[int]] = []
+    res : list[list[int]] = [] 
     
     
