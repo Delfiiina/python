@@ -595,7 +595,7 @@ def agrupar_por_longitud (nombre_archivo:str) -> dict[int,int]:
     archivo.close()
     return diccionario
 
-print (agrupar_por_longitud(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
+#print (agrupar_por_longitud(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
 
 '''
 Ejercicio 17. Dada una secuencia de tuplas, donde cada tupla tiene en la primera componente el nombre de un estudiante,
@@ -608,6 +608,21 @@ que mas veces aparece en un archivo de texto. Se aconseja utilizar un diccionari
 
 # Ejercicio 17 (Mio)
 
+def calcula_promedio_por_estudiante(notas: list[tuple[str,float]]) -> dict[str,float]:
+
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
+        
+            
+        
 
 
 
