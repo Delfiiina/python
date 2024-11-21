@@ -608,29 +608,33 @@ que mas veces aparece en un archivo de texto. Se aconseja utilizar un diccionari
 
 # Ejercicio 17 (Mio)
 
+def calcula_promedio (valor: list[float]) -> float:
+    cantidad_notas : int = 0
+    res : int = 0
+    for nota in valor:
+        res += nota
+        cantidad_notas += 1
+    return res/cantidad_notas
+
+#print (calcula_promedio([7,7,7]))        
+
 def calcula_promedio_por_estudiante(notas: list[tuple[str,float]]) -> dict[str,float]:
-
-
-        
+    diccionario : dict[str,float] = {}
     
     
+    for tupla in notas:
+        estudiante : str = tupla[0]
+        notas_estudiante : list[float] = []
+        if estudiante not in diccionario.keys():
+            for tupla in notas:
+                if tupla[0] == estudiante:
+                    notas_estudiante.append(tupla[1])
+            diccionario[estudiante] = calcula_promedio(notas_estudiante)
     
-    
-    
-    
-    
-    
-        
-            
-        
+    return diccionario
 
-
-
-
-
-
-
-
+prueba = [("Juan",8),("Maria",5),("Sofia",1),("Juan",7),("Malena",9),("Sofia",5),("Maria",10),("Juan",10)]
+#print (calcula_promedio_por_estudiante(prueba))       
 
 # Ejercicio 17
 
@@ -650,8 +654,7 @@ def calcular_promedio (alumno:str, notas: list [tuple[str,float]]) -> float:
                 cant_notas += 1
                 suma_notas += nota[1]
         return suma_notas/ cant_notas
-    
-    
+      
  carton = armar_carton()
 def armar_carton () -> list[int]:
     mi_lista : list [int] = []
@@ -664,6 +667,31 @@ def armar_carton () -> list[int]:
             mi_carton.append (elem)
     return mi_carton
 '''
+
+# Ejercicio 18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def contar_lineas (nombre_archivo: str) -> int:
     archivo : TextIO = open (nombre_archivo,"r", encoding= "utf-8")
