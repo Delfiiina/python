@@ -137,3 +137,37 @@ def mezclar (s1: list[int], s2:list[int]) -> list[int]:
 #print (mezclar(s1,s2))
 
 # Ejercicio 3
+
+def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
+    res : list[int] = []
+    contador : int = 0
+    
+    for carrera in carreras:
+        for caballo_nombre in carrera:
+            if caballo == caballo_nombre:
+                contador += 1
+        res.append (contador)
+        contador = 0 
+
+lista_ceros = [0]*len(caballos)
+print (como_salio("linda", [['linda', 'petisa', 'mister', 'luck'], ['petisa', 'mister', 'linda', 'luck']] ))
+
+
+
+def frecuencia_posiciones_por_caballo(caballos: list[str], carreras: dict[str,list[str]]) -> dict[str,list[int]]:
+    diccionario : dict [str,list[int]] = {}
+    
+    for caballo in caballos:
+        diccionario[caballo] = como_salio (caballo,carreras.values())
+        
+    return diccionario
+     
+caballos= ["linda", "petisa", "mister", "luck" ]
+carreras= {"carrera1":["linda", "petisa", "mister", "luck"],
+           "carrera2":["petisa", "mister", "linda", "luck"]}
+#se debería devolver res = {"petisa": [1,1,0,0],
+ #                          "mister": [0,1,1,0],
+ #                          "linda" : [1,0,1,0],
+ #                          "luck"  : [0,0,0,2]}
+ 
+#print (frecuencia_posiciones_por_caballo(caballos,carreras))
