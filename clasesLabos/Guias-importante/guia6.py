@@ -110,32 +110,7 @@ def devolver_el_doble_si_es_par (numero: int) -> int:
         res: int = numero
     return res 
 
-# Ejercicio 6
-
-def numeros_pares_10_40 ():
-    x: int = 10
-    while x <= 40:
-        if x % 2 == 0:
-            print (x)
-        x += 1
-
-def cuenta_regresiva (numero:int):
-    while numero != 0:
-        print (numero)
-        numero -= 1
-    print ("fduhfi")
-
-def numeros_pares_10_40_v2 ():
-    for x in range (10,41,2):
-        print (x)
-
-def cuenta_regresiva_v2 (numero:int):
-    for n in range (numero,0,-1):
-        print (n)
-    print ("dgj")
-
-# print (cuenta_regresiva(8))
-
+# Bien:
 def cantidad_de_pizzas (comensales: int, min_cant_de_porciones:int) -> int:
     pizza: int = comensales * min_cant_de_porciones
     if pizza % 8 == 0:
@@ -211,6 +186,7 @@ def sirve_pino (altura:float) -> bool:
 #print (sirve_pino (47487584774857.0))
 #print (sirve_pino (3.0))
 
+
 # Ejercicio 5
 
 def devolver_el_doble_si_es_par (numero:int) -> int:
@@ -265,6 +241,35 @@ def argentina (sexo: str, edad:int):
             print ("vaca")
 
 # Ejercicio 6
+
+def numeros_pares_10_40 ():
+    x: int = 10
+    while x <= 40:
+        if x % 2 == 0:
+            print (x)
+        x += 1
+
+def cuenta_regresiva (numero:int):
+    while numero != 0:
+        print (numero)
+        numero -= 1
+    print ("fduhfi")
+
+def numeros_pares_10_40_v2 ():
+    for x in range (10,41,2):
+        print (x)
+
+def cuenta_regresiva_v2 (numero:int):
+    for n in range (numero,0,-1):
+        print (n)
+    print ("dgj")
+
+# print (cuenta_regresiva(8))
+
+
+
+
+# Ejercicio 6
 # 3)
 
 def eco ():
@@ -300,7 +305,6 @@ def aristoteles (partida:int):
         print ("Viajo mucho " + str (par + 20))
 
 #aristoteles (10)
-
 
     
 #print (absoluto (8))
