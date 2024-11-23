@@ -597,6 +597,37 @@ def agrupar_por_longitud (nombre_archivo:str) -> dict[int,int]:
 
 #print (agrupar_por_longitud(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
 
+# Ejercicio 16 
+
+def agrupar_por_longitud (nombre_archivo: str) -> dict:
+    archivo : TextIO = open (nombre_archivo, "r")
+    lineas : list[str] = archivo.readlines()
+    diccionario : dict[int,int] = {}
+    palabra : str = ""
+    todas_las_palabras : list[str] = []
+    
+    for linea in lineas:
+        for letra in linea:
+            if letra == " " or letra == "\n":
+                todas_las_palabras.append(palabra)
+                palabra = ""
+            else:
+                palabra += letra
+        print(todas_las_palabras)
+    todas_las_palabras.append(palabra)
+
+
+    for cada_palabra in todas_las_palabras:
+        largo: int = len (cada_palabra)
+        if largo not in diccionario.keys():
+            diccionario[largo] = 1
+        else:
+            diccionario[largo] += 1
+            
+    return diccionario
+
+#print (agrupar_por_longitud("hola.txt"))
+
 '''
 Ejercicio 17. Dada una secuencia de tuplas, donde cada tupla tiene en la primera componente el nombre de un estudiante,
 y en la esgunda componenete la nota que saco en un examen; se pide devolver un diccionario con los promedios de todos los
@@ -711,14 +742,54 @@ def la_palabra_mas_frecuente (nombre_archivo: str) -> str:
         
     return palabra_max
 
-print (la_palabra_mas_frecuente(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
+#print (la_palabra_mas_frecuente(r"C:\Delfina\python\apartePy\python\clasesLabos\hola.txt"))
                 
-    
-    
-    
-    
-    
+# Ejercicio 19 
+# 1)
+historial_A : Pila[str] = Pila()
+historial_A.put("google.com")
+historial_A.put("youtube.com")
+historial_A.put("facebook.com")
+historial_B : Pila[str] = Pila()
+historial_B.put("instagram.com")
+historial_B.put("twitter.com")
+historial_B.put("facebook.com")
+historial_C : Pila[str] = Pila()
+historial_C.put("instagram.com")
+historial_C.put("facebook.com")
+historial_C.put("tiktok.com")
 
+historiales : dict = {
+    "A" : historial_A.queue,
+    "B" : historial_B.queue,
+    "C" : historial_C.queue
+}    
+
+# 2)
+
+def visitar_sitio (historiales:dict[str,Pila[str]], usuario:str, sitio:str) -> None:
+    
+    print ("Originalmente:" + str(historiales))
+    print (historiales)
+    if usuario in historiales.keys():
+        for persona in historiales.keys():
+            if persona == usuario:
+                historiales[persona].append(sitio)
+    else:
+        Pila_nueva: Pila[str] = Pila()
+        Pila_nueva.put(sitio)
+        historiales[usuario] = Pila_nueva.queue # !
+            
+    print ("Luego queda:" + str(historiales))
+            
+print ("Ejemplo 1:")
+visitar_sitio(historiales, "A","Jujuy")
+print ("Ejemplo 2:")
+visitar_sitio(historiales,"D","Cordoba")
+
+# 3) No entendí???
+
+# Ejercicio 20
 
 
 
@@ -797,33 +868,3 @@ def existe_palabra (palabra: str, nombre_archivo:str) -> bool:
 #print (existe_palabra("hola", "hola.txt"))
 
 
-# Ejercicio 16 
-
-def agrupar_por_longitud (nombre_archivo: str) -> dict:
-    archivo : TextIO = open (nombre_archivo, "r")
-    lineas : list[str] = archivo.readlines()
-    diccionario : dict[int,int] = {}
-    palabra : str = ""
-    todas_las_palabras : list[str] = []
-    
-    for linea in lineas:
-        for letra in linea:
-            if letra == " " or letra == "\n":
-                todas_las_palabras.append(palabra)
-                palabra = ""
-            else:
-                palabra += letra
-        print(todas_las_palabras)
-    todas_las_palabras.append(palabra)
-
-
-    for cada_palabra in todas_las_palabras:
-        largo: int = len (cada_palabra)
-        if largo not in diccionario.keys():
-            diccionario[largo] = 1
-        else:
-            diccionario[largo] += 1
-            
-    return diccionario
-
-#print (agrupar_por_longitud("hola.txt"))

@@ -145,20 +145,50 @@ def esta_ordenada_decreciente (l:list[int]) -> bool:
             return False
     return True
 
+def transponer_matriz (m:list[list[int]]) -> list[list[int]]:
+    res_transpuesta : list[list[int]] = []
+    nueva_columna : list[int] = []
+    
+    if m == []:
+        return [[]]
+    
+    for i in range (len(m[0])):
+        for fila in m:
+            nueva_columna.append(fila[i])
+        res_transpuesta.append(nueva_columna)
+        nueva_columna = []
+        
+    return res_transpuesta
+
+'''
+matriz = [[0,1,2],[3,4,5]]
+print ("matriz original: " + str (matriz))
+print ("la transpongo(?:")
+print (transponer_matriz(matriz))
+print ("resultado esperado : [[0,3],[1,4],[2,5]]")
+'''    
+
+
 def matriz_cuasi_decreciente(matriz: list[list[int]]) -> bool:
     lista_maximos : list [int] = []
+    matriz_2 : list [list] = transponer_matriz(matriz)
   
-    for fila in matriz:
-        for columna in fila:
-            maximo : int = columna
-            for numero in fila:
-                if numero > maximo:
-                    maximo = numero
+    if matriz == []:
+        return True
+    
+    for fila in matriz_2:
+        maximo : int = fila[0]
+        for numero in fila:
+            if numero > maximo:
+                maximo = numero
         lista_maximos.append(maximo)
     return esta_ordenada_decreciente(lista_maximos)
 
-def matriz_cuasi_decreciente(matriz: list[list[int]]) -> bool:
+'''def matriz_cuasi_decreciente(matriz: list[list[int]]) -> bool:
     lista_con_max : list [int] = []
+    
+    if matriz == []:
+        return True
 
     for elemento in matriz:
         maximo : int = elemento[0]
@@ -168,6 +198,7 @@ def matriz_cuasi_decreciente(matriz: list[list[int]]) -> bool:
         lista_con_max.append (maximo)
 
     return esta_ordenada_decreciente(lista_con_max)
+'''
 
-matriz_prueba = [[11,6,3]]
+matriz_prueba = [[8,3,1],[0,5,3],[0,2,4]]
 print (matriz_cuasi_decreciente(matriz_prueba))
