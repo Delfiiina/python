@@ -111,6 +111,36 @@ def elementos_exclusivos (s: list[int], t: list[int]) -> list[int]:
 def contar_traducciones_iguales (ing: dict[str,str], ale: dict[str,str]) -> int:
     contador : int = 0
     
-    
+    for word in ing.keys():
+        if pertenece (word,ale.keys()):
+            if ing[word] == ale[word]:
+                contador += 1
+    return contador
 
-#res = cantidad de palabras que están en ambos diccionarios y además tienen igual valor en ambos}
+
+#aleman = {"Mano": "Hand", "Pie": "Fuss", "Dedo": "Finger", "Cara": "Gesicht"}
+#inglés = {"Pie": "Foot", "Dedo": "Finger", "Mano": "Hand"}
+#print (contar_traducciones_iguales(inglés,aleman))            
+    
+# Ejercicio 4
+
+def cantidad_apariciones (numero: int, lista: list[int]) -> int:
+    contador : int = 0
+    
+    for num in lista:
+        if num == numero:
+            contador += 1
+    return contador
+
+def convertir_a_diccionario (lista:list[int]) -> dict[int,int]:
+    diccionario : dict[int,int] = {}
+    
+    for numero in lista:
+        if not pertenece (numero,diccionario.keys()):
+            diccionario[numero] = cantidad_apariciones(numero,lista)
+    
+    return diccionario
+
+lista = [-1,0,4,100,100,-1,-1]
+print (convertir_a_diccionario(lista))
+# debería devolver res={-1:3, 0:1, 4:1, 100:2}
