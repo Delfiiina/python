@@ -1,3 +1,7 @@
+from queue import LifoQueue as Pila, Queue as Cola
+from typing import List, TextIO
+import random
+import math
 '''
 1) Índice de la n-ésima aparición [2 puntos]
 Guido y Marcela son dos estudiantes de IP, nervioses con el parcial de Python. 
@@ -137,22 +141,32 @@ def mezclar (s1: list[int], s2:list[int]) -> list[int]:
 #print (mezclar(s1,s2))
 
 # Ejercicio 3
-
+'''
 def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
-    res : list[int] = []
-    contador : int = 0
+    res_separado : list [list[int]] = []
+    cada_carrera : list [int] = []
     
+        
     for carrera in carreras:
         for caballo_nombre in carrera:
             if caballo == caballo_nombre:
-                contador += 1
-        res.append (contador)
-        contador = 0 
+                cada_carrera.append(1)
+            else:
+                cada_carrera.append(0)
+        res_separado.append(cada_carrera)
+        cada_carrera = []
+            
+    res : list[int] = [0] * len(carreras[0])
+    
+    for i in range (len(res_separado[0])):
+        for fila in res_separado:
+            for numero in fila:
+                res[i] += numero
+      
+    return res
 
-lista_ceros = [0]*len(caballos)
+#lista_ceros = [0]*len(caballos)
 print (como_salio("linda", [['linda', 'petisa', 'mister', 'luck'], ['petisa', 'mister', 'linda', 'luck']] ))
-
-
 
 def frecuencia_posiciones_por_caballo(caballos: list[str], carreras: dict[str,list[str]]) -> dict[str,list[int]]:
     diccionario : dict [str,list[int]] = {}
@@ -171,3 +185,63 @@ carreras= {"carrera1":["linda", "petisa", "mister", "luck"],
  #                          "luck"  : [0,0,0,2]}
  
 #print (frecuencia_posiciones_por_caballo(caballos,carreras))
+
+    res : list[int] = [0] * len(carreras[0])
+    res_separado : list [list[int]] = []
+    cada_carrera : list [int] = []
+    
+        
+    for carrera in carreras:
+        for caballo_nombre in carrera:
+            if caballo == caballo_nombre:
+                cada_carrera.append(1)
+            else:
+                cada_carrera.append(0)
+        res_separado.append(cada_carrera)
+        cada_carrera = []
+    
+    for i in range (len(res_separado[0])):
+        lista_ceros[i] += res_separado[i][i]
+        
+    return res
+def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
+    ceros : list [int] = [0] * len (carreras[0])
+    for carrera in carreras:
+        for caballo_nombre in carrera:
+            for i in range (len(ceros)):
+                if caballo == caballo_nombre:
+                    ceros [i] += 1
+                    break
+    
+    return ceros
+''' 
+# Ejercicio 4
+def es_capicua (fila:list[int]) -> bool:
+    pila : Pila [int] = Pila ()
+    matriz_dada_vuelta : list [int] = []
+    
+    for elem in fila:
+        pila.put(elem)
+    while not pila.empty():
+        elemento : int = pila.get()
+        matriz_dada_vuelta.append(elemento)
+    
+    return (list(fila)== list(matriz_dada_vuelta))
+            
+def matriz_capicua (m:list[list[int]]) -> bool:
+    valores : list[bool] = []
+    
+    for fila in m:
+        if es_capicua(fila):
+            valores.append(True)
+        else:
+            valores.append(False)
+    
+    for valor in valores:
+        if valor == False:
+            return valor
+    return True
+
+#m = [[1,2,2,1],[-5,6,6,-5],[0,1,1,0]]
+#print (matriz_capicua(m))
+#se debería devolver res = true
