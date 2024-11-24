@@ -199,4 +199,42 @@ def nivel_de_ocupacion(camas_por_piso: list[list[bool]]) -> list[float]:
 
 #######################################################################
 
+# Ejercicio 4
+
+def sumar_numeros (l:list[int]) -> int:
+  res: int = 0
+  for num in l:
+    res += num
+  return res
+
+def buscar_el_maximo (l:list[tuple[int,int]]) -> int:
+  maximo : int = l[1][1]
+  for elemento in l:
+    if elemento[1] > maximo:
+      maximo = elemento[1]
+  return maximo
+
+def  empleados_del_mes (horas: dict[int,list[int]]) -> list[int]:
+  res: list[int] = []
+  nueva_lista : list [(int,int)] = []
+  
+  for elemento in horas.items():
+    nueva_lista.append((elemento[0],sumar_numeros(elemento[1])))
     
+  maximo : int = buscar_el_maximo (nueva_lista)
+  
+  for elemento in nueva_lista:
+    if elemento[1] == maximo:
+      res.append(elemento[0])
+  
+  return res
+   
+   
+diccionario = { 1: [20,10,8],
+                2: [3,10,2],
+                3: [4,4,4],
+                4: [38]
+                }  
+
+#print (empleados_del_mes (diccionario))
+
