@@ -209,11 +209,36 @@ def transponer (tablero:list[list[str]]) -> list[list[str]]:
     return res
 
 tablero = [[" "," "," "," "," "],["X","O"," "," "," "],["X"," ","O"," "," "],["X"," "," "," "," "],[" "," "," "," "," "]]
-print (transponer(tablero))
+#print (transponer(tablero))
+tablero_transpuesto = [[' ', 'X', 'X', 'X', ' '], [' ', 'O', ' ', ' ', ' '], [' ', ' ', 'O', ' ', ' '], [' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ']]
+
+def gano_alguien (letra: str, tablero_transpuesto : list[list[str]]) -> bool:
+    
+    for columna in tablero_transpuesto:
+        for i in range (len(columna)-2):
+            if columna[i] == letra and columna[i] == columna[i+1] and columna[i] == columna[i+2]:
+                return True
+    return False
+
+#print (gano_alguien("X",tablero_transpuesto))
 
 
 def quien_gano_el_tateti_facilito (tablero:list[list[str]]) -> int:
-    transpuesto : list[list[str]] = transponer(tablero)
-    contadorX : int = 0
-    contadorO : int = 0
+    transpuesta : list[list[str]] = transponer(tablero)
     
+    if gano_alguien("X",transpuesta) == True and gano_alguien("O",transpuesta) == True:
+        return 3
+    elif gano_alguien ("X", transpuesta) == True and gano_alguien("O",transpuesta) == False:
+        return 1
+    elif gano_alguien ("X", transpuesta) == False and gano_alguien("O",transpuesta) == True:
+        return 2
+    else:
+        return 0
+    
+############ De los profes
+def palindromo(texto:str)->bool:
+    for i in range(len(texto)//2):
+        if (texto[i]!=texto[len(texto)-i-1]):
+            return False
+    return True
+        
