@@ -141,6 +141,27 @@ def mezclar (s1: list[int], s2:list[int]) -> list[int]:
 #print (mezclar(s1,s2))
 
 # Ejercicio 3
+
+def frecuencia_posiciones_por_caballo(caballos: list[str], carreras: dict[str,list[str]]) -> dict[str,list[int]]:
+    diccionario : dict [str,list[int]] = {}
+    
+    for caballo in caballos:
+        diccionario[caballo] = [0]* len(caballos)
+    for carrera in carreras.values():
+        for i in range (len(carrera)):
+            diccionario[carrera[i]][i] += 1
+        
+    return diccionario
+     
+caballos= ["linda", "petisa", "mister", "luck" ]
+carreras= {"carrera1":["linda", "petisa", "mister", "luck"],
+           "carrera2":["petisa", "mister", "linda", "luck"]}
+#se debería devolver res = {"petisa": [1,1,0,0],
+ #                          "mister": [0,1,1,0],
+ #                          "linda" : [1,0,1,0],
+ #                          "luck"  : [0,0,0,2]}
+ 
+print (frecuencia_posiciones_por_caballo(caballos,carreras))
 '''
 def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
     res_separado : list [list[int]] = []
@@ -167,24 +188,6 @@ def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
 
 #lista_ceros = [0]*len(caballos)
 print (como_salio("linda", [['linda', 'petisa', 'mister', 'luck'], ['petisa', 'mister', 'linda', 'luck']] ))
-
-def frecuencia_posiciones_por_caballo(caballos: list[str], carreras: dict[str,list[str]]) -> dict[str,list[int]]:
-    diccionario : dict [str,list[int]] = {}
-    
-    for caballo in caballos:
-        diccionario[caballo] = como_salio (caballo,carreras.values())
-        
-    return diccionario
-     
-caballos= ["linda", "petisa", "mister", "luck" ]
-carreras= {"carrera1":["linda", "petisa", "mister", "luck"],
-           "carrera2":["petisa", "mister", "linda", "luck"]}
-#se debería devolver res = {"petisa": [1,1,0,0],
- #                          "mister": [0,1,1,0],
- #                          "linda" : [1,0,1,0],
- #                          "luck"  : [0,0,0,2]}
- 
-#print (frecuencia_posiciones_por_caballo(caballos,carreras))
 
     res : list[int] = [0] * len(carreras[0])
     res_separado : list [list[int]] = []
@@ -214,6 +217,11 @@ def como_salio (caballo: str, carreras:list[list[str]]) -> list[int]:
                     break
     
     return ceros
+
+    for caballo in caballos:    #por cada caballo que existe
+        res[caballo] = [0]*len(caballos)    #armo una lista para guardar sus frecuencias en cada posición de las carreras. empieza con todos ceros
+    for carrera in carreras.values():   #recorro cada carrera del diccionario de entrada. las claves no me interesan, solo los valores
+        for i in range(len(carrera)):     #recorro cada posición de la carrera, que es un nombre de caballo... y con ese número...
 ''' 
 # Ejercicio 4
 def es_capicua (fila:list[int]) -> bool:
